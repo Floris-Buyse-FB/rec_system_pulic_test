@@ -45,7 +45,7 @@ with data_tab:
                     st.write('Campaign ID not found')
                 else:
                     # make the tab change to the weights tab automatically
-                    st.write('Campaign ID found, please go to the weights tab to set the weights')
+                    st.write('Campaign ID found, please go to the cols tab to choose the columns to be included in the marketing_pressure calculation')
             except Exception as e:
                 st.write('Something went wrong, please try again\n', e)
 
