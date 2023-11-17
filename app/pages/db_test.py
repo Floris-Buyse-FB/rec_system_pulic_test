@@ -11,10 +11,7 @@ st.title('Database connection test')
 hostname = st.secrets['HOSTNAME']
 port = st.secrets['PORT']
 username = st.secrets['USERNAME']
-private_key_secret_name = st.secrets['PRIVATE_KEY_SECRET_NAME']
-
-# Retrieve the private key from Streamlit secrets
-private_key = st.secrets[private_key_secret_name]
+private_key = st.secrets['PKE']
 
 # Create an SSH client
 ssh = paramiko.SSHClient()
