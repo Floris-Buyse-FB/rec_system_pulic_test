@@ -241,7 +241,6 @@ def calc_marketing_pressure(df, mp_cols, weights_dict=None):
 
 def get_hulp_df(link=CSV_FILE):
     df= pd.read_csv(link)
-    df.drop(['avg_waarde_jaar', 'afspraak_account_gelinkt', 'campagne_campagne_id', 'inschrijving_aanwezig_afwezig', 'inschrijving_facturatie_bedrag'], axis=1, inplace=True)
     return df
 
 
