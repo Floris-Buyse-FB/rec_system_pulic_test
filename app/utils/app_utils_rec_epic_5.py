@@ -16,19 +16,20 @@ nltk.download('stopwords', quiet=True)
 nltk.download('punkt', quiet=True)
 
 DWH_NAME = st.secrets['DWH_NAME']
-SERVER_NAME = st.secrets['SERVER_NAME']
+SERVER_NAME_LOCAL = st.secrets['SERVER_NAME']
+SERVER_NAME_REMOTE = st.secrets['SERVER_NAME_REMOTE']
 DB_USER = st.secrets['DB_USER']
 DB_PASSWORD = st.secrets['DB_PASSWORD']
-
+                             
 
 def connect_db(local=True):
     if local:
-        URL_LOCAL = f'mssql+pyodbc://{SERVER_NAME}/{DWH_NAME}?trusted_connection=yes&driver=ODBC+Driver+17 for SQL Server'
+        URL_LOCAL = f'mssql+pyodbc://{SERVER_NAME_LOCAL}/{DWH_NAME}?trusted_connection=yes&driver=ODBC+Driver+17 for SQL Server'
         engine = create_engine(URL_LOCAL)
         conn = engine.connect()
         return conn
     else:
-        URL = f'mssql+pymssql://{DB_USER}:{DB_PASSWORD}@{SERVER_NAME}/{DWH_NAME}'
+        URL = f'mssql+pymssql://{DB_USER}:{DB_PASSWORD}@{SERVER_NAME_REMOTE}/{DWH_NAME}'
         engine = create_engine(URL)
         conn = engine.connect()
         return conn
